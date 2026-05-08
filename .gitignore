@@ -1,0 +1,12 @@
+node_modules/
+allure-results/
+allure-report/
+test-results/
+.env
+.DS_Store
+*.log
+.vscode/
+playwright-report/
+# Docker
+*.tar
+docker-image/

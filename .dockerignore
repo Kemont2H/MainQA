@@ -1,0 +1,9 @@
+node_modules
+allure-results
+allure-report
+test-results
+.git
+.gitignore
+README.md
+.DS_Store
+*.log
