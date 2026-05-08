@@ -1,5 +1,4 @@
-# Dockerfile - в корне проекта
-FROM mcr.microsoft.com/playwright:v1.40.0-focal
+FROM node:18-alpine
 
 WORKDIR /app
 
@@ -12,11 +11,10 @@ RUN npm ci
 # Копируем исходный код
 COPY . .
 
-# Устанавливаем браузеры
-RUN npx playwright install --with-deps chromium
+# Устанавливаем Playwright и браузеры
+RUN npx playwright install chromium
 
-# Создаем директорию для результатов
-RUN mkdir -p allure-results test-results reports
+# Создаем папки для результатов
+RUN mkdir -p allure-results test-results playwright-report
 
-# Команда по умолчанию
 CMD ["npm", "run", "test:all"]
