@@ -17,7 +17,7 @@ class SauceDemoAssertions {
         const inventoryList = this.page.locator('.inventory_list');
         await expect(inventoryList).toBeVisible();
         
-        console.log('  ✓ Вход выполнен успешно');
+        console.log('   Вход выполнен успешно');
     }
 
     // Проверка: вход не удался (есть сообщение об ошибке)
@@ -28,7 +28,7 @@ class SauceDemoAssertions {
         const errorText = await errorMessage.textContent();
         expect(errorText).toContain(expectedErrorMessage);
         
-        console.log(`  ✓ Ошибка входа: ${expectedErrorMessage}`);
+        console.log(`   Ошибка входа: ${expectedErrorMessage}`);
     }
 
     // Проверка: товар добавлен в корзину
@@ -39,10 +39,10 @@ class SauceDemoAssertions {
             await expect(cartBadge).toBeVisible();
             const countText = await cartBadge.textContent();
             expect(parseInt(countText, 10)).toBe(expectedCount);
-            console.log(`  ✓ В корзине ${expectedCount} товар(ов)`);
+            console.log(`   В корзине ${expectedCount} товар(ов)`);
         } else {
             await expect(cartBadge).toBeHidden();
-            console.log('  ✓ Корзина пуста');
+            console.log('   Корзина пуста');
         }
     }
 
@@ -51,19 +51,19 @@ class SauceDemoAssertions {
         const items = this.page.locator('.inventory_item');
         const actualCount = await items.count();
         expect(actualCount).toBe(expectedCount);
-        console.log(`  ✓ На странице ${actualCount} товаров`);
+        console.log(`   На странице ${actualCount} товаров`);
     }
 
     // Проверка: мы на странице корзины
     async assertOnCartPage() {
         await expect(this.page).toHaveURL(/.*cart.html/);
-        console.log('  ✓ На странице корзины');
+        console.log('   На странице корзины');
     }
 
     // Проверка: мы на странице логина
     async assertOnLoginPage() {
         await expect(this.page).toHaveURL('https://www.saucedemo.com/');
-        console.log('  ✓ На странице логина');
+        console.log('   На странице логина');
     }
 }
 

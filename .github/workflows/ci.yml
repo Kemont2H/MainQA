@@ -16,12 +16,12 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'npm'
@@ -40,7 +40,7 @@ jobs:
       run: npm run allure:generate
     
     - name: Load Allure History
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       if: always()
       continue-on-error: true
       with:
@@ -65,7 +65,7 @@ jobs:
     
     - name: Upload test results as artifact
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-results
         path: |
@@ -80,14 +80,14 @@ jobs:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
         message: |
-          🧪 Тесты завершены!
+           Тесты завершены!
           
           Репозиторий: ${{ github.repository }}
           Ветка: ${{ github.ref_name }}
           Статус: ${{ job.status }}
           
-          ✅ Прошло: (смотри Allure отчет)
-          📊 Отчет: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/allure-history/
+           Прошло: (смотри Allure отчет)
+           Отчет: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/allure-history/
           
           🔗 GitHub Actions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 

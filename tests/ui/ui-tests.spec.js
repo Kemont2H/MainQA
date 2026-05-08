@@ -33,7 +33,7 @@ test.describe('UI Автоматизация - SauceDemo', () => {
         // Делаем скриншот после действия
         await allure.attachment('After Login', await page.screenshot(), 'image/png');
         
-        console.log('✅ Тест 1 пройден!');
+        console.log(' Тест 1 пройден!');
     });
 
     test('Тест 2: Вход с невалидными данными', async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe('UI Автоматизация - SauceDemo', () => {
         // Скриншот ошибки
         await allure.attachment('Error Message', await page.screenshot(), 'image/png');
         
-        console.log('✅ Тест 2 пройден!');
+        console.log(' Тест 2 пройден!');
     });
 
     test('Тест 3: Добавление товара в корзину', async ({ page }) => {
@@ -69,7 +69,7 @@ test.describe('UI Автоматизация - SauceDemo', () => {
         await saucedemoPage.goToCart();
         await allure.attachment('Cart Page', await page.screenshot(), 'image/png');
         
-        console.log('✅ Тест 3 пройден!');
+        console.log(' Тест 3 пройден!');
     });
 
     test('Тест 4: Проверка количества товаров', async ({ page }) => {
@@ -80,7 +80,7 @@ test.describe('UI Автоматизация - SauceDemo', () => {
         // Скриншот страницы с товарами
         await allure.attachment('Inventory Page', await page.screenshot(), 'image/png');
         
-        console.log('✅ Тест 4 пройден!');
+        console.log(' Тест 4 пройден!');
     });
 
     test('Тест 5: Выход из системы', async ({ page }) => {
@@ -92,6 +92,6 @@ test.describe('UI Автоматизация - SauceDemo', () => {
         
         await allure.attachment('Logout Success', await page.screenshot(), 'image/png');
         
-        console.log('✅ Тест 5 пройден!');
+        console.log(' Тест 5 пройден!');
     });
 });
